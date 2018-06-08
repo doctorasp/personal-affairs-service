@@ -1,0 +1,96 @@
+﻿@model PersonalAffairs.WEB.Models.WorkerViewModel
+@{
+    ViewBag.Title = "AddWorker";
+}
+
+<h2>AddWorker</h2>
+@using (Html.BeginForm("AddWorker", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>
+                FirstName
+            </label>
+        </div>
+        <div class="col-md-10">
+            <textarea class="form-control" rows="1" name="FirstName"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>
+                LastName
+            </label>
+        </div>
+        <div class="col-md-10">
+            <textarea class="form-control" rows="1" name="LastName"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>
+                CardNumber
+            </label>
+        </div>
+        <div class="col-md-10">
+            <textarea class="form-control" rows="1" name="CardNumber"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>
+                Experience
+            </label>
+        </div>
+        <div class="col-md-10">
+            <textarea class="form-control" rows="1" name="Experience"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>
+                Позиція
+            </label>
+        </div>
+        <div class="col-md-10">
+            <select name="Position">
+                @foreach (var i in ViewBag.Positions)
+                {
+                    <option value="@i.Id">
+                        @i.Name
+                    </option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>
+                Відділ
+            </label>
+        </div>
+        <div class="col-md-10">
+            <select name="Unit">
+                @foreach (var i in ViewBag.Units)
+                {
+                    <option value="@i.Id">
+                        @i.Name
+                    </option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-10 col-md-1">
+            <input type="submit" value="Додати" class="btn btn-success" style="background-color:#4db7ad; border:none" />
+        </div>
+    </div>
+</div>
+}

@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "SearchResult";
+}
+
+<h2>GlobalSearchResult</h2>
+
+<h2>Workers</h2>
+@foreach (var w in ViewBag.workers)
+{
+    <label>FirstName:</label>
+    @w.FirstName
+    <br />
+    <label>LastName:</label>
+    @w.LastName
+    <br />
+    <label>CardNumber:</label>
+    @w.CardNumber
+    <br />
+    <label>Position:</label>
+    @w.Position.Name
+    <br />
+    <label>Unit:</label>
+    @w.Unit.Name
+    <hr />
+}
+
+<h2>Positions</h2>
+@foreach (var w in ViewBag.positions)
+{
+    <label>Name:</label>
+    @w.Name
+    <br />
+    <label>Price:</label>
+    @w.Price
+    <br />
+    <hr />
+}
+
+<h2>Units</h2>
+@foreach (var w in ViewBag.units)
+{
+    <label>Name:</label>
+    @w.Name
+    <br />
+    <hr />
+}
+

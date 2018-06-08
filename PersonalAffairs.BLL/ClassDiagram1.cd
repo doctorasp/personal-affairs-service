@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PersonalAffairs.BLL.Services.PositionService">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAiQAAAAAAACAAAAAAAAAgAAAAAAAQAA=</HashCode>
+      <FileName>Services\PositionService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.179" />
+  </Class>
+  <Class Name="PersonalAffairs.BLL.Services.ProjectService">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAgCAIAAAAAAAQAAAAAAJAAA=</HashCode>
+      <FileName>Services\ProjectService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PersonalAffairs.BLL.Services.UnitService">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAQAAAAAAAAACAAQAAAAAAAAIAAgAAAAA=</HashCode>
+      <FileName>Services\UnitService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PersonalAffairs.BLL.Services.WorkerService">
+    <Position X="6.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAgCAAAAAAEAAAAAAAACAAAA=</HashCode>
+      <FileName>Services\WorkerService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PersonalAffairs.DAL.Entities.Position">
+    <Position X="0.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PersonalAffairs.DAL.Entities.Project">
+    <Position X="2.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PersonalAffairs.DAL.Entities.Unit">
+    <Position X="6.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PersonalAffairs.DAL.Entities.Worker">
+    <Position X="4.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="PersonalAffairs.BLL.Interfaces.IPositionService">
+    <Position X="1" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAiQAAAAAAAAAAAAAAAAAgAAAAAAAQAA=</HashCode>
+      <FileName>Interfaces\IPositionService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PersonalAffairs.BLL.Interfaces.IProjectService">
+    <Position X="2.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAgAAIAAAAAAAQAAAAAAJAAA=</HashCode>
+      <FileName>Interfaces\IProjectService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PersonalAffairs.BLL.Interfaces.IUnitService">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAQAAAAAAAAAAAAQAAAAAAAAIAAgAAAAA=</HashCode>
+      <FileName>Interfaces\IUnitService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PersonalAffairs.BLL.Interfaces.IWorkerService">
+    <Position X="6.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAgAAAAAAAEAAAAAAAACAAAA=</HashCode>
+      <FileName>Interfaces\IWorkerService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

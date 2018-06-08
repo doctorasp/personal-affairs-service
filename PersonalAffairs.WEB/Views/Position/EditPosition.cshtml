@@ -1,0 +1,51 @@
+﻿@model PersonalAffairs.BLL.DTO.PositionDTO
+@{
+    ViewBag.Title = "EditPosition";
+}
+
+
+<h2>EditWorker</h2>
+
+
+@using (Html.BeginForm("EditPosition", "Position", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>Position Name:</label>
+        </div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>Price:</label>
+        </div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <br />
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>Working Hours:</label>
+        </div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.WorkingHours, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <br />
+    </div>
+    <br />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Update" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+    }

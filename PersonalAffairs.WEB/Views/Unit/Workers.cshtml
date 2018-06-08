@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PersonalAffairs.BLL.DTO.WorkerDTO>
+@{
+    ViewBag.Title = "Worker";
+}
+<style>
+    table tr:nth-child(2){
+        background-color:azure;
+    }
+</style>
+<h2>Workers(most payment worker is highlighted)</h2>
+<table class="table">
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            @Html.ActionLink("Position", "GetAllWorkersByUnit", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("SumOfProjects", "GetAllWorkersByUnit", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+
+    </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            <label>First Name:</label>
+            @Html.DisplayFor(modelItem => item.FirstName)
+            <br />
+            <label>Last Name:</label>
+            @Html.DisplayFor(modelItem => item.LastName)
+            <br />
+            <label>Card Number:</label>
+            @Html.DisplayFor(modelItem => item.CardNumber)
+            <br />
+            <label>Experience:</label>
+            @Html.DisplayFor(modelItem => item.Experience)
+            <br />
+
+        </td>
+        <td>
+            <label>Position:</label>
+            @Html.DisplayFor(modelItem => item.Position.Name)
+            <br />
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.SumOfProjects) $
+            <br />
+        </td>
+
+    </tr>
+    }
+
+    </table>

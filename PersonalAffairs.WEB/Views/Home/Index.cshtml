@@ -1,0 +1,104 @@
+﻿@model IEnumerable<PersonalAffairs.BLL.DTO.WorkerDTO>
+@{
+    ViewBag.Title = "Home Page";
+}
+<br />
+@using (Html.BeginForm("GlobalSearch","Home"))
+{
+    <p>
+        Global Search: @Html.TextBox("keyword")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
+<h2>Workers</h2>
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm())
+        {
+            <p>
+                Find by FirstName or LastName: @Html.TextBox("SearchString")
+                <input type="submit" value="Search" />
+            </p>
+        }
+
+    </div>
+    <div class="col-md-3">
+        @using (Html.BeginForm())
+        {
+            <p>
+                Find by CardNumber: @Html.TextBox("cardNumber")
+                <input type="submit" value="Search" />
+            </p>
+        }
+    </div>
+
+    
+</div>
+
+
+<br />
+@Html.ActionLink("Add worker", "AddWorker", "Home")
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CardNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unit)
+        </th>
+        <th>
+            @Html.ActionLink("Price", "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unit.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Projects", "WorkerProjects", "Home", new { id = item.Id }, null)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditWorker", "Home", new { id = item.Id }, null)
+            </td>
+            <td>
+                @Html.ActionLink("Info", "InfoWorker", "Home", new { id = item.Id }, null)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteWorker", "Home", new { id = item.Id }, null)
+            </td>
+        </tr>
+    }
+
+</table>

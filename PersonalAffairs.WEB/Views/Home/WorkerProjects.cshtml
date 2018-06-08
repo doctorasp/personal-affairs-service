@@ -1,0 +1,22 @@
+﻿@model IEnumerable<PersonalAffairs.BLL.DTO.ProjectDTO>
+@{
+    ViewBag.Title = "WorkerProjects";
+}
+
+<h2>WorkerProjects</h2>
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <label>FirstName:</label>
+                @Html.DisplayFor(modelitem => item.ProjectName)
+                <br />
+                <label>LastName:</label>
+                @Html.DisplayFor(modelItem => item.ProjectPrice)
+                <br />
+            </td>
+        </tr>
+    }
+
+</table>

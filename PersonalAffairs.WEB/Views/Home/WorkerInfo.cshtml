@@ -1,0 +1,37 @@
+﻿@model PersonalAffairs.BLL.DTO.WorkerDTO
+@{
+    ViewBag.Title = "WorkerInfo";
+}
+
+<h2>WorkerInfo</h2>
+<table class="table">
+
+        <tr>
+            <td>
+                <label>FirstName:</label>
+                @Html.DisplayFor(item => item.FirstName)
+                <br />
+                <label>LastName:</label>
+                @Html.DisplayFor(item => item.LastName)
+                <br />
+                <label>CardNumber:</label>
+
+                @Html.DisplayFor(item => item.CardNumber)
+                <br />
+                <label>Experience:</label>
+
+                @Html.DisplayFor(item => item.Experience)
+
+                <br />
+                <label>PositionName:</label>
+                @Html.DisplayFor(item => item.Position.Name)     @Html.DisplayFor(item => item.Position.Price) $
+
+                <br />
+                <label>UnitName:</label>
+                @Html.DisplayFor(item => item.Unit.Name)
+                @Html.DisplayFor(item => item.Projects)
+            </td>
+        </tr>
+   
+
+</table>

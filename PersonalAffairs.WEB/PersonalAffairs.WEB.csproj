@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B74EAEF5-30A0-41E5-B514-807479BC77C1}</ProjectGuid>
+    <ProjectGuid>{302BC6A4-2EDF-4979-9648-7499E5C1FC59}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PersonalAffairs</RootNamespace>
-    <AssemblyName>PersonalAffairs</AssemblyName>
+    <RootNamespace>PersonalAffairs.WEB</RootNamespace>
+    <AssemblyName>PersonalAffairs.WEB</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -61,9 +61,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Ninject, Version=3.3.3.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.3.3\lib\net45\Ninject.dll</HintPath>
-    </Reference>
-    <Reference Include="Ninject.Web.Common, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.Web.Common.3.3.0\lib\net45\Ninject.Web.Common.dll</HintPath>
     </Reference>
     <Reference Include="Ninject.Web.Common.WebHost, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.Web.Common.WebHost.3.3.0\lib\net45\Ninject.Web.Common.WebHost.dll</HintPath>
@@ -165,10 +162,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PositionController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\UnitController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProjectViewModel.cs" />
+    <Compile Include="Models\PositionViewModel.cs" />
+    <Compile Include="Models\UnitViewModel.cs" />
+    <Compile Include="Models\WorkerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\WorkerModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -207,10 +212,24 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\AddWorker.cshtml" />
+    <Content Include="Views\Home\WorkerInfo.cshtml" />
+    <Content Include="Views\Home\EditWorker.cshtml" />
+    <Content Include="Views\Unit\Index.cshtml" />
+    <Content Include="Views\Position\Index.cshtml" />
+    <Content Include="Views\Position\AddPosition.cshtml" />
+    <Content Include="Views\Position\EditPosition.cshtml" />
+    <Content Include="Views\Unit\AddUnit.cshtml" />
+    <Content Include="Views\Unit\EditUnit.cshtml" />
+    <Content Include="Views\Home\SearchResult.cshtml" />
+    <Content Include="Views\Position\PositionInfo.cshtml" />
+    <Content Include="Views\Unit\UnitInfo.cshtml" />
+    <Content Include="Views\Unit\Workers.cshtml" />
+    <Content Include="Views\Project\Index.cshtml" />
+    <Content Include="Views\Home\WorkerProjects.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -230,6 +249,10 @@
       <Project>{e8f6986b-b722-4a3f-b286-04d859cb7c42}</Project>
       <Name>PersonalAffairs.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PersonalAffairs.DAL\PersonalAffairs.DAL.csproj">
+      <Project>{59e487e3-4139-48aa-97f3-7e5f922051fe}</Project>
+      <Name>PersonalAffairs.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -247,9 +270,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3999</DevelopmentServerPort>
+          <DevelopmentServerPort>4435</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:3999/</IISUrl>
+          <IISUrl>http://localhost:4435/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

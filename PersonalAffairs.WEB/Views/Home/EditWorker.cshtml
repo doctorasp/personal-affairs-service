@@ -1,0 +1,81 @@
+﻿@model PersonalAffairs.BLL.DTO.WorkerDTO
+@{
+    ViewBag.Title = "WorkerInfo";
+}
+
+
+<h2>EditWorker</h2>
+
+
+@using (Html.BeginForm("EditWorker", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>FirstName:</label>
+        </div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>LastName:</label>
+        </div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <br />
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>CardNumber:</label>
+        </div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CardNumber, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <br />
+    </div>
+    <br />
+    @*<div class="form-group">
+                        <div class="col-md-2">
+                            <label>PositionName:</label>
+                        </div>
+                        <div class="col-md-10">
+                            <select name="Position">
+                                @foreach (var i in ViewBag.Positions)
+                    {
+                        <option value="@i.Id">
+                            @i.Name
+                        </option>
+        }
+                            </select>
+                        </div>
+                        <br />
+                         </div>*@
+    @*<div class="form-group">
+                        <div class="col-md-2">
+                            <label>UnitName:</label>
+                        </div>
+                        <div class="col-md-10">
+                            <select name="Unit">
+                                @foreach (var i in ViewBag.Units)
+                    {
+                        <option value="@i.Id">
+                            @i.Name
+                        </option>
+        }
+                            </select>
+                        </div>
+                        </div>*@
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Update" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+    }

@@ -1,0 +1,21 @@
+﻿@model PersonalAffairs.BLL.DTO.PositionDTO
+@{
+    ViewBag.Title = "PositionInfo";
+}
+
+<h2>PositionInfo</h2>
+<table class="table">
+
+        <tr>
+            <td>
+                <label>Name:</label>
+                @Html.DisplayFor(item => item.Name)
+                <br />
+                <label>Price:</label>
+                @Html.DisplayFor(item => item.Price)
+                <br />
+            </td>
+        </tr>
+   
+
+</table>

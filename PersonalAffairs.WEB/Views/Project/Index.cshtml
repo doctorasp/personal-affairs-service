@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PersonalAffairs.BLL.DTO.ProjectDTO>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Projects</h2>
+
+<br />
+
+<div class="col-md-3">
+    @using (Html.BeginForm())
+    {
+        <p>
+            Find by Project: @Html.TextBox("searchString")
+            <input type="submit" value="Search" />
+        </p>
+    }
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectPrice)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectPrice)
+        </td>
+    </tr>
+    }
+
+</table>
