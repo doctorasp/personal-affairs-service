@@ -1,4 +1,6 @@
-﻿namespace PersonalAffairs.DAL.Entities
+﻿using System.Collections.Generic;
+
+namespace PersonalAffairs.DAL.Entities
 {
     public class Unit
     {

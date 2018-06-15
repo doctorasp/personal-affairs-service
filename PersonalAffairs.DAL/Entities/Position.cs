@@ -4,6 +4,10 @@ namespace PersonalAffairs.DAL.Entities
 {
     public class Position
     {
+        public Position()
+        {
+            Worker = new List<Worker>();
+        }
         public int Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }

@@ -61,7 +61,7 @@ namespace PersonalAffairs.WEB.Controllers
             switch (sortOrder)
             {
                 case "name_desc":
-                    workerDtos = workerDtos.OrderByDescending(s => s.FirstName);
+                    workerDtos = workerDtos.OrderByDescending(s => s.Position.Price);
                     break;
                 case "LastName":
                     workerDtos = workerDtos.OrderByDescending(s => s.LastName);
@@ -89,7 +89,6 @@ namespace PersonalAffairs.WEB.Controllers
         public ActionResult AddWorker(WorkerDTO workerDTO)
         {
             workerService.AddWorker(workerDTO);
-
             return RedirectToAction("Index");
         }
 

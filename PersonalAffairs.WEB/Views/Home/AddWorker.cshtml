@@ -1,4 +1,4 @@
-﻿@model PersonalAffairs.WEB.Models.WorkerViewModel
+﻿@model PersonalAffairs.BLL.DTO.WorkerDTO
 @{
     ViewBag.Title = "AddWorker";
 }
@@ -58,14 +58,14 @@
             </label>
         </div>
         <div class="col-md-10">
-            <select name="Position">
-                @foreach (var i in ViewBag.Positions)
-                {
-                    <option value="@i.Id">
-                        @i.Name
-                    </option>
-                }
-            </select>
+            <select name="PositionId">
+            @foreach (var i in ViewBag.Positions)
+            {
+                <option value="@i.Id">
+                    @i.Name
+                </option>
+            }
+        </select>
         </div>
     </div>
 
@@ -76,7 +76,7 @@
             </label>
         </div>
         <div class="col-md-10">
-            <select name="Unit">
+            <select name="UnitId">
                 @foreach (var i in ViewBag.Units)
                 {
                     <option value="@i.Id">

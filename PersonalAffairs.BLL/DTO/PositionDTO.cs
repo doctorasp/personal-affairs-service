@@ -1,4 +1,6 @@
-﻿namespace PersonalAffairs.BLL.DTO
+﻿using System.Collections.Generic;
+
+namespace PersonalAffairs.BLL.DTO
 {
     public class PositionDTO
     {
