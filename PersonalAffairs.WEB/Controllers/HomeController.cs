@@ -75,6 +75,7 @@ namespace PersonalAffairs.WEB.Controllers
             }
           
             return View("Index", workerDtos);
+
         }
         public ActionResult AddWorker()
         {
@@ -82,7 +83,7 @@ namespace PersonalAffairs.WEB.Controllers
             IEnumerable<UnitDTO> units = unitService.GetAllUnits();
             ViewBag.Positions = positions.ToList();
             ViewBag.Units = units.ToList();
-            return View("AddWorker");
+            return View("add-worker");
         }
 
         [HttpPost]

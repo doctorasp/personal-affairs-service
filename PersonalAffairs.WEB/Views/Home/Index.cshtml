@@ -7,29 +7,29 @@
 {
     <p>
         Global Search: @Html.TextBox("keyword")
-        <input type="submit" value="Search" />
+        <input class="btn btn-dark" type="submit" value="Search" />
     </p>
 }
 
 
 <h2>Workers</h2>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         @using (Html.BeginForm())
         {
             <p>
                 Find by FirstName or LastName: @Html.TextBox("SearchString")
-                <input type="submit" value="Search" />
+                <input class="btn btn-dark" type="submit" value="Search" />
             </p>
         }
 
     </div>
-    <div class="col-md-3">
+    <div class="col-md-6">
         @using (Html.BeginForm())
         {
             <p>
                 Find by CardNumber: @Html.TextBox("cardNumber")
-                <input type="submit" value="Search" />
+                <input class="btn btn-dark" type="submit" value="Search" />
             </p>
         }
     </div>
@@ -39,9 +39,11 @@
 
 
 <br />
-@Html.ActionLink("Add worker", "AddWorker", "Home")
+<a class="btn btn-light" href="/Home/AddWorker/">Add worker</a>
+<br />
+<br />
 
-<table class="table">
+<table class="table table-light">
     <tr>
         <th>
             @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.NameSortParm })
@@ -90,13 +92,13 @@
                 @Html.ActionLink("Projects", "WorkerProjects", "Home", new { id = item.Id }, null)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditWorker", "Home", new { id = item.Id }, null)
+                <a class="btn btn-light" href="Home/EditWorker/@item.Id">Edit</a>
             </td>
             <td>
-                @Html.ActionLink("Info", "InfoWorker", "Home", new { id = item.Id }, null)
+                <a class="btn btn-info" href="Home/InfoWorker/@item.Id">Info</a>
             </td>
             <td>
-                @Html.ActionLink("Delete", "DeleteWorker", "Home", new { id = item.Id }, null)
+                <a class="btn btn-danger" href="Home/DeleteWorker/@item.Id">Edit</a>
             </td>
         </tr>
     }
