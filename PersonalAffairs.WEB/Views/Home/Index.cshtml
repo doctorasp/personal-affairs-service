@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PersonalAffairs.BLL.DTO.WorkerDTO>
+﻿@model IEnumerable<PersonalAffairs.WEB.Models.WorkerViewModel>
 @{
     ViewBag.Title = "Home Page";
 }
@@ -7,7 +7,7 @@
 {
     <p>
         Global Search: @Html.TextBox("keyword")
-        <input class="btn btn-dark" type="submit" value="Search" />
+        <input class="btn btn-light" type="submit" value="Search" />
     </p>
 }
 
@@ -19,7 +19,7 @@
         {
             <p>
                 Find by FirstName or LastName: @Html.TextBox("SearchString")
-                <input class="btn btn-dark" type="submit" value="Search" />
+                <input class="btn btn-light" type="submit" value="Search" />
             </p>
         }
 
@@ -29,7 +29,7 @@
         {
             <p>
                 Find by CardNumber: @Html.TextBox("cardNumber")
-                <input class="btn btn-dark" type="submit" value="Search" />
+                <input class="btn btn-light" type="submit" value="Search" />
             </p>
         }
     </div>
@@ -43,7 +43,7 @@
 <br />
 <br />
 
-<table class="table table-light">
+<table class="table">
     <tr>
         <th>
             @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.NameSortParm })
@@ -63,6 +63,8 @@
         <th>
             @Html.ActionLink("Price", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
+        <th>Projects</th>
+        <th></th>
         <th></th>
         <th></th>
     </tr>
@@ -92,13 +94,13 @@
                 @Html.ActionLink("Projects", "WorkerProjects", "Home", new { id = item.Id }, null)
             </td>
             <td>
-                <a class="btn btn-light" href="Home/EditWorker/@item.Id">Edit</a>
+                <a class="btn btn-light" href="/Home/EditWorker/@item.Id">Edit</a>
             </td>
             <td>
-                <a class="btn btn-info" href="Home/InfoWorker/@item.Id">Info</a>
+                <a class="btn btn-light" href="/Home/InfoWorker/@item.Id">Info</a>
             </td>
             <td>
-                <a class="btn btn-danger" href="Home/DeleteWorker/@item.Id">Edit</a>
+                <a class="btn btn-light" href="/Home/DeleteWorker/@item.Id">Delete</a>
             </td>
         </tr>
     }

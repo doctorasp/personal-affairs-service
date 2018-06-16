@@ -1,5 +1,7 @@
-﻿using PersonalAffairs.BLL.DTO;
+﻿using AutoMapper;
+using PersonalAffairs.BLL.DTO;
 using PersonalAffairs.BLL.Interfaces;
+using PersonalAffairs.WEB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +23,11 @@ namespace PersonalAffairs.WEB.Controllers
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             IEnumerable<UnitDTO> unitDtos = unitService.GetAllUnits();
-           
-            return View("Index", unitDtos);
+
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<UnitDTO, UnitViewModel>()).CreateMapper();
+            var units = mapper.Map<IEnumerable<UnitDTO>, IEnumerable<UnitViewModel>>(unitDtos);
+
+            return View("Index", units);
         }
 
             public ActionResult AddUnit()
@@ -42,16 +47,16 @@ namespace PersonalAffairs.WEB.Controllers
             switch (sortOrder)
             {
                 case "name_desc":
-                    workerDtos = workerDtos.OrderByDescending(s => s.Experience/s.SumOfProjects);
+                    workerDtos = workerDtos.OrderBy(s => s.SumOfProjects);
                     break;
                 case "Position":
-                    workerDtos = workerDtos.OrderByDescending(s => s.Position.Name);
+                    workerDtos = workerDtos.OrderBy(s => s.Position.Name);
                     break;
                 case "SumOfProjects":
-                    workerDtos = workerDtos.OrderByDescending(s => s.SumOfProjects);
+                    workerDtos = workerDtos.OrderBy(s => s.SumOfProjects/s.Experience);
                     break;
                 default:
-                    workerDtos = workerDtos.OrderBy(s => s.FirstName);
+                    workerDtos = workerDtos.OrderByDescending(s => s.SumOfProjects/ s.Experience);
                     break;
             }
             return View("Workers", workerDtos);

@@ -1,5 +1,8 @@
-﻿using PersonalAffairs.BLL.DTO;
+﻿using AutoMapper;
+using PersonalAffairs.BLL.DTO;
 using PersonalAffairs.BLL.Interfaces;
+using PersonalAffairs.DAL.Entities;
+using PersonalAffairs.WEB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,35 +49,37 @@ namespace PersonalAffairs.WEB.Controllers
         public ActionResult Index(string sortOrder, string searchString, int cardNumber=0)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+
             IEnumerable<WorkerDTO> workerDtos = workerService.GetAllWorkers();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<WorkerDTO, WorkerViewModel>()).CreateMapper();
+            var workers = mapper.Map<IEnumerable<WorkerDTO>, IEnumerable<WorkerViewModel>>(workerDtos);
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                workerDtos = workerDtos.Where(s => s.FirstName.Contains(searchString)
-                                       || s.LastName.Contains(searchString));
+                workers = workers.Where(s => s.FirstName.Contains(searchString) || s.LastName.Contains(searchString));
              }
 
             if (cardNumber!=0)
             {
-                workerDtos = workerDtos.Where(s => s.CardNumber == cardNumber);
+                workers = workers.Where(s => s.CardNumber == cardNumber);
             }
             switch (sortOrder)
             {
                 case "name_desc":
-                    workerDtos = workerDtos.OrderByDescending(s => s.Position.Price);
+                    workers = workers.OrderByDescending(s => s.Position.Price);
                     break;
                 case "LastName":
-                    workerDtos = workerDtos.OrderByDescending(s => s.LastName);
+                    workers = workers.OrderByDescending(s => s.LastName);
                     break;
                 case "Price":
-                    workerDtos = workerDtos.OrderBy(s => s.Position.Price);
+                    workers = workers.OrderBy(s => s.Position.Price);
                     break;
                 default:
-                    workerDtos = workerDtos.OrderBy(s => s.FirstName);
+                    workers = workers.OrderBy(s => s.FirstName);
                     break;
             }
           
-            return View("Index", workerDtos);
+            return View("Index", workers);
 
         }
         public ActionResult AddWorker()

@@ -1,5 +1,7 @@
-﻿using PersonalAffairs.BLL.DTO;
+﻿using AutoMapper;
+using PersonalAffairs.BLL.DTO;
 using PersonalAffairs.BLL.Interfaces;
+using PersonalAffairs.WEB.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +22,10 @@ namespace PersonalAffairs.WEB.Controllers
         public ActionResult Index()
         {
             IEnumerable<PositionDTO> posDtos = positionService.GetAllPositions();
-            return View("Index", posDtos);
+
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<PositionDTO, PositionViewModel>()).CreateMapper();
+            var positions = mapper.Map<IEnumerable<PositionDTO>, IEnumerable<PositionViewModel>>(posDtos);
+            return View("Index", positions);
         }
 
 

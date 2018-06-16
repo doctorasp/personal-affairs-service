@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PersonalAffairs.BLL.DTO.UnitDTO>
+﻿@model IEnumerable<PersonalAffairs.WEB.Models.UnitViewModel>
 @{
     ViewBag.Title = "Index";
 }
@@ -7,13 +7,18 @@
 <h2>Units</h2>
 
 <br />
-@Html.ActionLink("Add Unit", "AddUnit", "Unit")
-
-<table class="table">
+<a class="btn btn-light" href="/Unit/AddUnit/">Add position</a>
+<br />
+<br />
+<table class="table ">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
+        <th>Workers</th>
+        <th></th>
+        <th></th>
+        <th></th>
     </tr>
 
     @foreach (var item in Model)
@@ -21,6 +26,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Workers", "GetAllWorkersByUnit", "Unit", new { id = item.Id }, null)
         </td>
         <td>
             @Html.ActionLink("Edit", "EditUnit", "Unit", new { id = item.Id }, null)
@@ -31,9 +39,7 @@
         <td>
             @Html.ActionLink("Delete", "DeleteUnit", "Unit", new { id = item.Id }, null)
         </td>
-        <td>
-            @Html.ActionLink("Workers", "GetAllWorkersByUnit", "Unit", new { id = item.Id }, null)
-        </td>
+
     </tr>
     }
 

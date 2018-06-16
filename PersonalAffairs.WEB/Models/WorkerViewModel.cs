@@ -8,8 +8,9 @@ namespace PersonalAffairs.WEB.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int CardNumber { get; set; }
-        public int PositionId { get; set; }
-        public virtual Position Position { get; set; }
-        public Unit Unit { get; set; }
+        public int Experience { get; set; }
+
+        public PositionViewModel Position { get; set; }
+        public UnitViewModel Unit { get; set; }
     }
 }

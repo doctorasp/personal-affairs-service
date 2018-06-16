@@ -3,15 +3,25 @@
     ViewBag.Title = "Worker";
 }
 <style>
-    table tr:nth-child(2){
-        background-color:azure;
+    table tr:nth-child(2) div{
+        display:block;
+    }
+    table tr td div {
+        display: none;
+    }
+    .dot {
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        background-color: yellow;
     }
 </style>
-<h2>Workers(most payment worker is highlighted)</h2>
+<br />
 <table class="table">
     <tr>
+        <th></th>
         <th>
-
+            Worker Info
         </th>
         <th>
             @Html.ActionLink("Position", "GetAllWorkersByUnit", new { sortOrder = ViewBag.NameSortParm })
@@ -24,6 +34,9 @@
         @foreach (var item in Model)
         {
     <tr>
+        <td>
+            <div class="dot"></div>
+        </td>
         <td>
             <label>First Name:</label>
             @Html.DisplayFor(modelItem => item.FirstName)
