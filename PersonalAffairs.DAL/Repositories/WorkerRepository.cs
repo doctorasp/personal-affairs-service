@@ -22,6 +22,7 @@ namespace PersonalAffairs.DAL.Repositories
 
         public void Delete(Worker item)
         {
+
             dataContext.Workers.Remove(item);
         }
 

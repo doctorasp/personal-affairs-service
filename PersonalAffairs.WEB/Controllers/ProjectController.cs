@@ -26,5 +26,19 @@ namespace PersonalAffairs.WEB.Controllers
             }
             return View("Index", projDtos);
         }
+
+        public ActionResult WorkerProjects(int id)
+        {
+            ViewBag.wId = id;
+            IEnumerable<ProjectDTO> projDto = projectService.GetAllProjectsByWorker(id);
+            return View("WorkerProjects", projDto);
+        }
+
+        [HttpPost]
+        public ActionResult AddProject(ProjectDTO projDTO)
+        {
+            projectService.AddProject(projDTO);
+            return RedirectToAction("WorkerProjects/"+projDTO.WorkerId);
+        }
     }
 }

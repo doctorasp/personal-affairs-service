@@ -20,6 +20,14 @@ namespace PersonalAffairs.DAL.EF
 
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<Worker>()
+            //    .HasMany(x => x.Projects)
+            //    .WithRequired() 
+            //    .WillCascadeOnDelete();
+        }
+
         public class StoreDbInitializer :  CreateDatabaseIfNotExists<DatabaseContext>
         {
             protected override void Seed(DatabaseContext db)
@@ -114,6 +122,8 @@ namespace PersonalAffairs.DAL.EF
 
                 db.SaveChanges();
             }
+
+           
         }
     }
 }

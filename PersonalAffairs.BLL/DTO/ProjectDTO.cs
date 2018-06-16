@@ -7,5 +7,6 @@ namespace PersonalAffairs.BLL.DTO
         public int Id { get; set; }
         public string ProjectName { get; set; }
         public decimal ProjectPrice { get; set; }
+        public int WorkerId { get; set; }
     }
 }

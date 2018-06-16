@@ -1,0 +1,72 @@
+﻿@model IEnumerable<PersonalAffairs.BLL.DTO.ProjectDTO>
+@{
+    ViewBag.Title = "WorkerProjects";
+}
+
+<br />
+<h2>AddProject</h2>
+@using (Html.BeginForm("AddProject", "Project", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>
+                ProjectName:
+            </label>
+        </div>
+        <div class="col-md-10">
+            <textarea class="form-control" rows="1" name="ProjectName"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>
+                ProjectPrice:
+            </label>
+        </div>
+        <div class="col-md-10">
+            <textarea class="form-control" rows="1" name="ProjectPrice"></textarea>
+        </div>
+    </div>
+    <input style="display:none" name="WorkerId" value="@ViewBag.wId" />
+    
+
+    <div class="form-group">
+        <div class="col-md-offset-10 col-md-1">
+            <input type="submit" value="Додати" class="btn btn-success" style="background-color:#4db7ad; border:none" />
+        </div>
+    </div>
+</div>
+}
+
+<hr />
+<h2>WorkerProjects</h2>
+<table class="table">
+    <tr>
+        <th>ProjectName</th>
+        <th>ProjectPrice</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelitem => item.ProjectName)
+                <br />
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectPrice)
+                <br />
+            </td>
+            <td>
+            </td>
+            <td></td>
+        </tr>
+    }
+
+</table>

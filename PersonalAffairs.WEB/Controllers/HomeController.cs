@@ -104,11 +104,7 @@ namespace PersonalAffairs.WEB.Controllers
             return View("WorkerInfo",  workerDto);
         }
 
-        public ActionResult WorkerProjects(int id)
-        {
-            IEnumerable<ProjectDTO> projDto = projService.GetAllProjectsByWorker(id);
-            return View("WorkerProjects", projDto);
-        }
+       
 
         [HttpGet]
         public ActionResult EditWorker(int id)
