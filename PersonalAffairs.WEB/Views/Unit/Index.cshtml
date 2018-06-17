@@ -4,10 +4,10 @@
 }
 
 <br />
-<h2>Units</h2>
+<h2 class="alert alert-info">Units</h2>
 
 <br />
-<a class="btn btn-light" href="/Unit/AddUnit/">Add position</a>
+<a class="btn btn-light" href="/Unit/AddUnit/">Add Unit</a>
 <br />
 <br />
 <table class="table ">
@@ -28,16 +28,16 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Workers", "GetAllWorkersByUnit", "Unit", new { id = item.Id }, null)
+            <a class="btn btn-light" href="/Unit/GetAllWorkersByUnit/@item.Id">Workers</a>
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditUnit", "Unit", new { id = item.Id }, null)
+            <a class="btn btn-light" href="/Unit/EditUnit/@item.Id">Edit</a>
         </td>
         <td>
-            @Html.ActionLink("Info", "InfoUnit", "Unit", new { id = item.Id }, null)
+            <a class="btn btn-light" href="/Unit/InfoUnit/@item.Id">Info</a>
         </td>
         <td>
-            @Html.ActionLink("Delete", "DeleteUnit", "Unit", new { id = item.Id }, null)
+            <a class="btn btn-light" href="/Unit/DeleteUnit/@item.Id">Delete</a>
         </td>
 
     </tr>

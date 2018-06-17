@@ -3,7 +3,8 @@
     ViewBag.Title = "AddWorker";
 }
 
-<h2>AddWorker</h2>
+<br />
+<h2 class="alert alert-info">Add Position</h2>
 @using (Html.BeginForm("AddPosition", "Position", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -16,7 +17,7 @@
             </label>
         </div>
         <div class="col-md-10">
-            <textarea class="form-control" rows="1" name="Name"></textarea>
+            <input type="text" class="form-control" name="Name"/>
         </div>
     </div>
     <div class="form-group">
@@ -26,7 +27,7 @@
             </label>
         </div>
         <div class="col-md-10">
-            <textarea class="form-control" rows="1" name="Price"></textarea>
+            <input type="number" class="form-control" rows="1" name="Price"/>
         </div>
     </div>
 
@@ -37,13 +38,13 @@
             </label>
         </div>
         <div class="col-md-10">
-            <textarea class="form-control" rows="1" name="WorkingHours"></textarea>
+            <input type="number" class="form-control" rows="1" name="WorkingHours"/>
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-md-offset-10 col-md-1">
-            <input type="submit" value="Додати" class="btn btn-success" style="background-color:#4db7ad; border:none" />
+            <input type="submit" value="Додати" class="btn btn-success" />
         </div>
     </div>
 </div>

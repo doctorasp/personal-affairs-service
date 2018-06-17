@@ -12,7 +12,7 @@
 }
 
 
-<h2>Workers</h2>
+<h2 class="alert alert-info">Workers</h2>
 <div class="row">
     <div class="col-md-6">
         @using (Html.BeginForm())
@@ -64,9 +64,9 @@
             @Html.ActionLink("Price", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>Projects</th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>Edit</th>
+        <th>Info</th>
+        <th>Delete</th>
     </tr>
 
     @foreach (var item in Model)
@@ -91,7 +91,7 @@
                 @Html.DisplayFor(modelItem => item.Position.Price)
             </td>
             <td>
-                @Html.ActionLink("Projects", "WorkerProjects", "Project", new { id = item.Id }, null)
+                <a class="btn btn-light" href="/Project/WorkerProjects/@item.Id">Projects</a>
             </td>
             <td>
                 <a class="btn btn-light" href="/Home/EditWorker/@item.Id">Edit</a>

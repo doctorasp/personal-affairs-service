@@ -4,7 +4,7 @@
 }
 
 <br />
-<h2>AddProject</h2>
+<h2 class="alert alert-info">Add project</h2>
 @using (Html.BeginForm("AddProject", "Project", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -17,7 +17,7 @@
             </label>
         </div>
         <div class="col-md-10">
-            <textarea class="form-control" rows="1" name="ProjectName"></textarea>
+            <input type="text" class="form-control" name="ProjectName"/>
         </div>
     </div>
 
@@ -28,7 +28,7 @@
             </label>
         </div>
         <div class="col-md-10">
-            <textarea class="form-control" rows="1" name="ProjectPrice"></textarea>
+            <input type="text" class="form-control" name="ProjectPrice"/>
         </div>
     </div>
     <input style="display:none" name="WorkerId" value="@ViewBag.wId" />
@@ -36,14 +36,14 @@
 
     <div class="form-group">
         <div class="col-md-offset-10 col-md-1">
-            <input type="submit" value="Додати" class="btn btn-success" style="background-color:#4db7ad; border:none" />
+            <input type="submit" value="Додати" class="btn btn-success" />
         </div>
     </div>
 </div>
 }
 
 <hr />
-<h2>WorkerProjects</h2>
+<h2 class="alert alert-success">WorkerProjects</h2>
 <table class="table">
     <tr>
         <th>ProjectName</th>
@@ -53,20 +53,20 @@
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelitem => item.ProjectName)
-                <br />
-                
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectPrice)
-                <br />
-            </td>
-            <td>
-            </td>
-            <td></td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelitem => item.ProjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectPrice)
+        </td>
+        <td>
+            <a class="btn btn-light" href="/Project/EditProject/@item.Id">Edit</a>
+        </td>
+        <td>
+            <a class="btn btn-light" href="/Project/Deleteproject/@item.Id">Delete</a>
+        </td>
+    </tr>
     }
 
 </table>
