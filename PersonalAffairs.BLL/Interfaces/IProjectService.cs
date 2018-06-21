@@ -11,5 +11,6 @@ namespace PersonalAffairs.BLL.Interfaces
         IEnumerable<ProjectDTO> GetAllProjectsByWorker(int id);
         decimal GetSumOfProjects(int wId);
         IEnumerable<ProjectDTO> GetAllProjects();
+        void UpdateProject(ProjectDTO projectDTO);
     }
 }

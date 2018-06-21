@@ -1,0 +1,43 @@
+﻿@model PersonalAffairs.BLL.DTO.ProjectDTO
+@{
+    ViewBag.Title = "EditPosition";
+}
+
+<br />
+<h2 class="alert alert-info">Edit Project</h2>
+
+
+@using (Html.BeginForm("EditProject", "Project", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>Project Name:</label>
+        </div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProjectName, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-2">
+            <label>Price:</label>
+        </div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProjectPrice, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <input type="text" style="display:none" name="WorkerId" value="@ViewBag.wId" />
+        <br />
+    </div>
+    <br />
+    <br />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Update" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+    }

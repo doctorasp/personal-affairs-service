@@ -92,5 +92,14 @@ namespace PersonalAffairs.BLL.Services
             ProjectDTO projectDTO = mapperWorker.Map<Project, ProjectDTO>(project);
             return projectDTO;
         }
+
+        public void UpdateProject(ProjectDTO projectDTO)
+        {
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<ProjectDTO, Project>()).CreateMapper();
+            Project project = unitOfWork.Projects.Get(projectDTO.Id);
+            project = mapper.Map<ProjectDTO, Project>(projectDTO);
+            unitOfWork.Projects.Update(project);
+            unitOfWork.Save();
+        }
     }
 }

@@ -40,5 +40,26 @@ namespace PersonalAffairs.WEB.Controllers
             projectService.AddProject(projDTO);
             return RedirectToAction("WorkerProjects/"+projDTO.WorkerId);
         }
+
+        public ActionResult DeleteProject(int id)
+        {
+            projectService.DeleteProject(id);
+            return RedirectToAction("Index","Home");
+        }
+
+        [HttpGet]
+        public ActionResult EditProject(int id)
+        {
+            ProjectDTO projDto = projectService.GetProjectById(id);
+            ViewBag.wId = projDto.WorkerId;
+            return View("EditProject", projDto);
+        }
+
+        [HttpPost]
+        public ActionResult EditProject(ProjectDTO projDTO)
+        {
+            projectService.UpdateProject(projDTO);
+            return RedirectToAction("WorkerProjects/" + projDTO.WorkerId);
+        }
     }
 }

@@ -52,7 +52,16 @@ namespace PersonalAffairs.DAL.Repositories
 
         public void Update(Project item)
         {
-            dataContext.Entry(item).State = EntityState.Modified;
+            var aExists = dataContext.Projects.Find(item.Id);
+            if (aExists == null)
+            {
+                dataContext.Projects.Add(item);
+            }
+            else
+            {
+                dataContext.Entry(aExists).State = EntityState.Detached;
+                dataContext.Entry(item).State = EntityState.Modified;
+            }
         }
     }
 }

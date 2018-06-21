@@ -44,30 +44,34 @@
 <br />
 
 <table class="table">
-    <tr>
-        <th>
-            @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.NameSortParm })
-        </th>
-        <th>
-            @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm })
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CardNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Position)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Unit)
-        </th>
-        <th>
-            @Html.ActionLink("Price", "Index", new { sortOrder = ViewBag.NameSortParm })
-        </th>
-        <th>Projects</th>
-        <th>Edit</th>
-        <th>Info</th>
-        <th>Delete</th>
-    </tr>
+    <thread class="thead-light">
+        <tr>
+
+            <th>
+                @Html.ActionLink("First Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CardNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unit)
+            </th>
+            <th>
+                @Html.ActionLink("Price", "Index", new { sortOrder = ViewBag.NameSortParm })
+            </th>
+            <th>Projects</th>
+            <th>Edit</th>
+            <th>Info</th>
+            <th>Delete</th>
+
+        </tr>
+    </thread>
 
     @foreach (var item in Model)
     {
