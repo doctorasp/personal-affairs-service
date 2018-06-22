@@ -64,7 +64,7 @@
             <a class="btn btn-light" href="/Project/EditProject/@item.Id">Edit</a>
         </td>
         <td>
-            <a class="btn btn-light" href="/Project/DeleteProject/@item.Id">Delete</a>
+            @Html.ActionLink("Delete", "DeleteProject", new { id=@item.Id, wId = @item.WorkerId}, new { @class="btn btn-light"})
         </td>
     </tr>
     }

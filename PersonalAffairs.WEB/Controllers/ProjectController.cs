@@ -41,10 +41,10 @@ namespace PersonalAffairs.WEB.Controllers
             return RedirectToAction("WorkerProjects/"+projDTO.WorkerId);
         }
 
-        public ActionResult DeleteProject(int id)
+        public ActionResult DeleteProject(int id, int wId)
         {
             projectService.DeleteProject(id);
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("WorkerProjects/"+wId);
         }
 
         [HttpGet]
